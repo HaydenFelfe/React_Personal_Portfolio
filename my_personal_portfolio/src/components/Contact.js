@@ -23,21 +23,47 @@ export const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setButtonText('Sending...');
-    let response = await fetch('http://localhost:5000/contact', {
+
+    if (
+      !formDetails.firstName ||
+      !formDetails.lastName ||
+      !formDetails.email ||
+      !formDetails.message
+    ) {
+      setStatus({
+        success: false,
+        message: "Please fill out all required fields.",
+      });
+      return;
+    }
+
+    setButtonText("Sending...");
+    try {
+      let response = await fetch("http://localhost:5000/contact", {
         method: "POST",
         headers: {
-            "Content-Type": "Application/json;charset=utf-8",
+          "Content-Type": "Application/json;charset=utf-8",
         },
         body: JSON.stringify(formDetails),
-    });
-    setButtonText("Send");
-    let result = response.json();
-    setFormDetails(formInitialDetails);
-    if(result.code === 200) {
-        setStatus({ success: true, nessage: 'Message send successfully'});
-    } else{
-        setStatus({ success: false, message: "Something went wrong, please try again later."})
+      });
+      let result = await response.json();
+      setFormDetails(formInitialDetails);
+      if (result.code === 200) {
+        setStatus({ success: true, message: "Message sent successfully!" });
+      } else {
+        setStatus({
+          success: false,
+          message: "Something went wrong, please try again later.",
+        });
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setStatus({
+        success: false,
+        message: "An error occurred while sending the message.",
+      });
+    } finally {
+      setButtonText("Send");
     }
   };
   return (
@@ -45,13 +71,10 @@ export const Contact = () => {
       <Container>
         <Row className="align-items-center">
           <Col md={6}>
-            <img src={contactImg} alt="Contact Us" />
-          </Col>
-          <Col md={6}>
             <h2>Get in Touch</h2>
             <form onSubmit={handleSubmit}>
               <Row>
-                <Col sm={6} class="px-1">
+                <Col sm={6} className="px-1">
                   <input
                     type="text"
                     value={formDetails.firstName}
@@ -59,7 +82,7 @@ export const Contact = () => {
                     onChange={(e) => onFormUpdate("firstName", e.target.value)}
                   />
                 </Col>
-                <Col sm={6} class="px-1">
+                <Col sm={6} className="px-1">
                   <input
                     type="text"
                     value={formDetails.lastName}
@@ -67,7 +90,7 @@ export const Contact = () => {
                     onChange={(e) => onFormUpdate("lastName", e.target.value)}
                   />
                 </Col>
-                <Col sm={6} class="px-1">
+                <Col sm={6} className="px-1">
                   <input
                     type="email"
                     value={formDetails.email}
@@ -75,7 +98,7 @@ export const Contact = () => {
                     onChange={(e) => onFormUpdate("email", e.target.value)}
                   />
                 </Col>
-                <Col sm={6} class="px-1">
+                <Col sm={6} className="px-1">
                   <input
                     type="tel"
                     value={formDetails.phone}
@@ -83,6 +106,8 @@ export const Contact = () => {
                     onChange={(e) => onFormUpdate("phone", e.target.value)}
                   />
                 </Col>
+              </Row>
+              <Row>
                 <Col>
                   <textarea
                     row="6"
@@ -90,21 +115,25 @@ export const Contact = () => {
                     placeholder="Message"
                     onChange={(e) => onFormUpdate("message", e.target.value)}
                   />
-                  <button type="submit">
+                </Col>
+              </Row>
+              {status.message && (
+                <Row className="justify-content-center">
+                  <Col
+                    className={
+                      status.success === false ? "text-danger" : "text-success"
+                    }
+                  >
+                    <p className="text-center">{status.message}</p>
+                  </Col>
+                </Row>
+              )}
+              <Row>
+                <Col className="text-center">
+                  <button type="submit" className="vvd d-block mx-auto">
                     <span>{buttonText}</span>
                   </button>
                 </Col>
-                {status.message && (
-                  <Col>
-                    <p
-                      className={
-                        status.success === false ? "danger" : "success"
-                      }
-                    >
-                      {status.message}
-                    </p>
-                  </Col>
-                )}
               </Row>
             </form>
           </Col>

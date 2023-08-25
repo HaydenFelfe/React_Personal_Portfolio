@@ -7,17 +7,18 @@ import projImg3 from "../assets/img/helpinghomeless.png";
 export const Projects = () => {
   const projects = [
     {
-      title: "Business Startup",
+      title: "The Workout Forum",
       description: "Design & Development",
       imgUrl: projImg1,
+      websiteURL: "https://secret-headland-44009-a7fef38932b2.herokuapp.com/"
     },
     {
-      title: "Business Startup",
+      title: "The Workout Forum",
       description: "Design & Development",
       imgUrl: projImg2,
     },
     {
-      title: "Business Startup",
+      title: "Helping Homeless",
       description: "Design & Development",
       imgUrl: projImg3,
     },
@@ -29,19 +30,18 @@ export const Projects = () => {
           <Col>
             <h2>Projects</h2>
             <p>
-              DEFAULT DEFAULT DEFAULT DEFAULT DEFAULT DEFAULT DEFAULT DEFAULT
-              DEFAULT DEFAULT DEFAULT DEFAULT DEFAULT{" "}
+            Explore a glimpse of my diverse project portfolio that showcases my versatility across both front-end and back-end development. These creations reflect my commitment to delivering well-rounded solutions, built entirely from the ground up.{" "}
             </p>
             <Tab.Container id="project-tabs" defaultActiveKey="first">
               <Nav variant="pills" className="nav-pills mb-5">
                 <Nav.Item>
-                  <Nav.Link eventKey="first">Front & Back End</Nav.Link>
+                  <Nav.Link eventKey="first">Workout Forum</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="second">Front End</Nav.Link>
+                  <Nav.Link eventKey="second">Helping Homeless</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="third">Tab Three</Nav.Link>
+                  <Nav.Link eventKey="third">My next Project</Nav.Link>
                 </Nav.Item>
               </Nav>
               <Tab.Content>
@@ -56,14 +56,14 @@ export const Projects = () => {
                   </Row>
                 </Tab.Pane>
                 <Tab.Pane eventKey="second">
-                  {" "}
-                  <div className="d-flex justify-content-center align-items-center">
-                    <img
-                      src={projImg3}
-                      alt="Project Image"
-                      style={{ width: "50%", height: "auto" }}
-                    />
-                  </div>
+                  <Row className="row">
+                    {projects.map((project, index) => {
+                      if (project.imgUrl === projImg3) {
+                        return <ProjectCard key={index} {...project} />;
+                      }
+                      return null;
+                    })}
+                  </Row>
                 </Tab.Pane>
                 <Tab.Pane eventKey="third">Hayden Felfe</Tab.Pane>
               </Tab.Content>

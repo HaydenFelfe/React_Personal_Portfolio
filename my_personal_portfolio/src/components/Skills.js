@@ -36,8 +36,10 @@ export const Skills = () => {
             <div className="skill-bx">
               <h2>Skills</h2>
               <p2>
-                DEFAULT DEFAULT DEFAULT DEFAULT DEFAULT DEFAULT DEFAULT DEFAULT
-                DEFAULT DEFAULT DEFAULT DEFAULT DEFAULT DEFAULT{" "}
+              Equipped with a strong command of HTML, CSS, and JavaScript, I specialize in creating captivating user interfaces that
+               seamlessly blend aesthetics and functionality. My expertise extends to back-end technologies like Node.js and Express, 
+               nabling me to develop efficient server-side applications. With a keen eye for UI/UX design, I'm determined to crafting
+                visually appealing and user-centered web solutions.{" "}
               </p2>
               <Carousel
                 responsive={responsive}
@@ -54,16 +56,16 @@ export const Skills = () => {
                   <h5> Web Development</h5>
                 </div>
                 <div className="item">
-                  <img src={meter2} alt="Image" />
-                  <h5> Brand Identity</h5>
-                </div>
-                <div className="item">
-                  <img src={meter3} alt="Image" />
-                  <h5> Logo Design</h5>
+                  <img src={meter1} alt="Image" />
+                  <h5> Express.js</h5>
                 </div>
                 <div className="item">
                   <img src={meter1} alt="Image" />
-                  <h5> Web Development</h5>
+                  <h5> Node.js</h5>
+                </div>
+                <div className="item">
+                  <img src={meter3} alt="Image" />
+                  <h5> Database Management</h5>
                 </div>
               </Carousel>
             </div>

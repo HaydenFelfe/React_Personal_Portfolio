@@ -48,8 +48,12 @@ return (
           <Col xs={12} md={6} xl={7} style={{width: "75%" }}>
             <span className="tagline">Welcome to my Portfolio</span>
             <h1>{'I am a '}<span className="wrap">{text}</span></h1>
-            <p> Dummy text but put paragrah about myself Dummy text but put paragrah about myselfDummy text but put paragrah about myselfDummy text but put paragrah about myselfDummy text but put paragrah about myself</p>
-            <button onClick={() => console.log('connect')}>Let's Connect <ArrowRightCircle size={25}/></button>
+            <p> My name is Hayden Felfe, a web enthusiast that recently completed a rigorous JavaScript bootcamp. With a solid foundation in JavaScript and a passion for design, I'm all about crafting captivating user experiences. I'm eager to showcase my skills in web development and design, from coding interactive interfaces to implementing robust backend features. Collaboration and continuous learning drive me, as I seek to create seamless, user-centered websites. Let's connect and explore the dynamic world of web development together.</p>
+            <a href="#connect" className="custom-link">
+            <button onClick={() => console.log('connect')}>
+              Let's Connect <ArrowRightCircle size={25}/>
+            </button>
+            </a>
           </Col>
           <Col xs={12} md={6} xl={5} style={{width: "25%" }}>
           <div style={{ width: "90%", margin: "0 auto" }}>

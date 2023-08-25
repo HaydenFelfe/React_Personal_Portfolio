@@ -74,6 +74,10 @@ input:focus, textarea:focus, select:focus {
 	}
 }
 
+@media (min-width:1700px) {
+
+  
+}
 
 p.success {
 	color: green;
@@ -250,6 +254,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 /************ Banner Css ************/
+.custom-link {
+  text-decoration: none;
+}
 .banner {
   margin-top: 0;
   padding: 200px 0 150px 0;
@@ -409,7 +416,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   line-height: 1.5em;
   margin: 14px auto 30px auto;
   text-align: center;
-  width: 56%;
+  width: 100%;
 }
 .project .nav.nav-pills {
   width: 72%;
@@ -472,7 +479,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 .proj-imgbx::before {
   content: "";
-  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  background: linear-gradient(90.21deg, rgba(12, 152, 177, 0.5) -5.91%, rgba(150, 151, 139, 0.75) 111.58%);
   opacity: 0.85;
   position: absolute;
   width: 100%;
@@ -522,28 +529,38 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /************ Projects Css ************/
 .contact {
-  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-  padding: 60px 0 200px 0;
+  /* background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%); */
+  /* background-color: #121212;
+  background-image: url('./assets/img/sand.jpg');
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat; */
+  background:  linear-gradient(90.21deg, rgba(12, 152, 177, 0.5) -5.91%, rgba(150, 151, 139, 0.75) 111.58%);
+  padding: 60px 0 100px 0;
+  /* border-top: 3px solid rgba(12, 152, 177, 0.5)  */
 }
 .contact img {
   width: 92%;
+}
+.centered-text {
+  text-align: center;
 }
 .contact h2 {
 	font-size: 45px;
 	font-weight: 700;
   margin-bottom: 30px;
+  text-align: center;
 }
 .contact form input, .contact form textarea {
   width: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.75);
   border-radius: 20px;
   color: #fff;
   margin: 0 0 8px 0;
   padding: 18px 26px;
   font-weight: 500;
   font-size: 18px;
-  letter-spacing: 0.8px;
   transition: 0.3s ease-in-out;
 }
 .contact form input:focus, .contact form textarea:focus {
@@ -594,11 +611,14 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /************ Footer Css ************/
 .footer {
-  padding: 0 0 50px 0;
-  background-image: url('./assets/img/footer-bg.png');
+  padding: 10px 0 0px 0;
+  background-color: #29828b;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+.logo-col {
+  padding-top: 10px;
 }
 .newsletter-bx {
   background: #FFFFFF;

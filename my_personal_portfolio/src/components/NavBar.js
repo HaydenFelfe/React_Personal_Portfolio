@@ -5,6 +5,7 @@ import navIcon1 from '../assets/img/nav-icon1.svg';
 import navIcon2 from '../assets/img/nav-icon2.svg';
 import navIcon3 from '../assets/img/nav-icon3.svg';
 
+
 export const CustomNavBar = () => {
     const [activeLink, setActiveLink] = useState('home');
     const [scrolled, setScrolled] = useState(false);
@@ -44,10 +45,12 @@ export const CustomNavBar = () => {
           <span className="navbar-text">
             <div className="social-icon">
                 <a href="https://www.linkedin.com/in/hayden-felfe-2a895a193/"><img src={navIcon1} alt="" /></a>
-                {/* <a href="#"><img src={navIcon2} alt="" /></a> */}
-                <a href="#"><img src={navIcon3} alt="" /></a>
+                <a href="https://github.com/haydenfelfe"><img src={navIcon2} alt="" /></a>
+                <a href="https://www.instagram.com/hayden_felfe/?hl=en"><img src={navIcon3} alt="" /></a>
             </div>
+          <Nav.Link href="#connect">
             <button className="vvd" onClick={() => console.log('connect')}><span>Let's Connect</span></button>
+            </Nav.Link>
           </span>
 
         </Navbar.Collapse>
